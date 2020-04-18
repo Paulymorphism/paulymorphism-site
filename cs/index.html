@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    a:link {
+      color: #10325C;
+      background-color: #EBF2FA;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #10325C;
+      background-color: #EBF2FA;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #EBF2FA;
+      background-color: #104F9E;
+      text-decoration: none;
+    }
+    
+    a:active {
+      color: #EBF2FA;
+      background-color: #10325C;
+      text-decoration: none;
+    }
+    </style>
+<head>
+  <h1 style="text-align: center;"><span style="color:#10325C"><strong><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="font-size:120px"><a href="http://paulymorphism.com">PAUL'S WEBSITE</a></span></span></strong></span></h1>
+  <h2 style="text-align: center;"><span style="color:#10325C"><strong><span style="font-size:55px"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><a href="http://google.com">ABOUT</a> | <a href="http://paulymorphism.com/music.html" target="_blank">MUSIC</a> | <a href="http://computerasdf.com" target="_blank">COMPUTER</a> | <a href="http://otherasdf.com" target="_blank">OTHER</a></span></span></strong></span></h2>
+</head>
+<body id="page-top">
+  <canvas id="ctx" width="500" height="600" style="border:1px solid #10325C;"></canvas>
+  <script>
+      var ctx = document.getElementById("ctx").getContext("2d");
+
+      ctx.font = "55px courier new,courier,lucida sans typewriter,lucida typewriter,monospace";
+      ctx.fillStyle = '#10325C'
+      ctx.globalApha = 0.5;
+      ctx.width = 500;
+      ctx.height = 600;
+      var i = 0;
+      var j = 0;
+      var b = 0;
+      var sqSize = 50
+      function animation1() {
+        ctx.clearRect(i - 1, j - 1, sqSize + 2, sqSize + 2);
+        switch(b) {
+          case 0:
+            i++;
+            j++;
+            break;
+          case 1:
+            i++;
+            j--;
+            break;
+          case 2:
+            i--;
+            j++;
+            break;
+          case 3:
+            i--;
+            j--;
+            break;
+        }
+        ctx.fillRect(i, j, sqSize, sqSize);
+        if (i == ctx.width - sqSize || i == 0){
+          b += 2;
+          b %= 4;
+        }
+        if (j == ctx.height - sqSize) {
+          b++;
+        } 
+        else if (j == 0) {
+          b--;
+        }
+
+      }
+
+      setInterval(animation1, 7);
+      
+      
+  </script>
+</body>
+</html>
