@@ -1,0 +1,96 @@
+<style>
+    button {
+        height:40px;
+        width:200px;
+    }
+</style>
+
+<span style="font-size:75px">Quicksort Demonsteration<br></span>
+<body>
+    <button class="button_" id="shuffle">Shuffle</button>
+    <button class="button_" id="sort_">Sort</button>
+</body>
+<br><br><canvas id="sort" width="1000" height="1000" style="border:1px solid #10325C;"></canvas>
+<script>
+    var sort = document.getElementById("sort").getContext("2d");
+    var array_size = 100;
+    var array_max = array_size;
+    var arr_ = new Array(100);
+    document.getElementById("shuffle").onclick = function() {
+        let tarr = new Array(array_size);
+        for(let i = 0; i < array_size; i++) {
+            tarr[i] = i + 1;
+            arr_.pop();
+        }
+        for(let i = array_size - 1; i > 0; i--) {
+            let newPos = Math.floor(Math.random() * (i + 1));
+            let temp = tarr[i];
+            tarr[i] = tarr[newPos];
+            tarr[newPos] = temp;
+        }
+        for(let i = 0; i < array_size; i++) {
+            arr_.push(tarr[i]);
+        }
+        printArray(arr_, 0, array_size - 1)
+        console.log(arr_)
+    }
+
+    document.getElementById("sort_").onclick = function() {
+        arr_ = quicksort(arr_, 0, array_size - 1);
+        printArray(arr_, 0, array_size - 1);
+        console.log(arr_)
+    }
+
+    Array.prototype.swap = function (x,y) {
+        var b = this[x];
+        this[x] = this[y];
+        this[y] = b;
+        return this;
+    }
+
+    function partition(arr, p, r)
+    {
+        let pivot = arr[r];
+        while (p < r) {
+            while (arr[p] < pivot) {
+                p += 1;
+            }
+            
+            while (arr[r] > pivot) {
+                r -= 1;
+            }
+
+            if (arr[p] == arr[r]) {
+                p += 1;
+            }
+            else if (p < r) {
+                arr.swap(p, r)
+            }
+        }
+
+        return r;
+    }
+
+    function quicksort(arr, p, r)
+    {
+        if (p < r) {
+            let j = partition(arr, p, r);
+            arr = quicksort(arr, p, j-1);
+            arr = quicksort(arr, j+1, r);
+        }
+        return arr;
+    }
+
+    //helper functions:
+    function printArray(arr, start, end)
+    {
+        sort.clearRect(0, start * (1000/array_size), (1000 / array_size) * (end - start), 1000);
+        for(let i = end; i >= start; i--) {
+            sort.fillRect(i * (1000/array_size), 0, (1000/array_size), arr[i] * (1000/array_max));
+        }
+    }
+
+
+
+</script>
+<p>Animation made with JavaScript.</p>
