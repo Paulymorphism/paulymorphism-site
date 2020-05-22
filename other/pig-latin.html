@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    a:link {
+      color: #10325C;
+      background-color: #EBF2FA;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #10325C;
+      background-color: #EBF2FA;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #EBF2FA;
+      background-color: #104F9E;
+      text-decoration: none;
+    }
+    
+    a:active {
+      color: #EBF2FA;
+      background-color: #10325C;
+      text-decoration: none;
+    }
+    textarea {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+<title>Pig Latin Translator</title>
+<head>
+  <h1 style="text-align: center;"><span style="color:#10325C"><strong><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="font-size:120px"><a href="http://paulymorphism.com">PAUL'S WEBSITE</a></span></span></strong></span></h1>
+  <h2 style="text-align: center;"><span style="color:#10325C"><strong><span style="font-size:55px"><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><a href="http://google.com">ABOUT</a> | <a href="http://paulymorphism.com/music.html" target="_blank">MUSIC</a> | <a href="http://computerasdf.com" target="_blank">COMPUTER</a> | <a href="http://otherasdf.com" target="_blank">OTHER</a></span></span></strong></span></h2>
+</head>
+<body id="page-top">
+  <h1 style="text-align: center;"><span style="color:#10325C"><strong><span style="font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace"><span style="font-size:24px">English Text Here:</span></span></strong></span></h1>
+  <textarea style="text-align: center; font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace; font-size:20px" id="english" rows="10" cols="60"></textarea>
+  <br>
+  <div style="text-align: center;">
+    <button class="button_" id="submit">Translate</button>
+  </div>
+  <br><br>
+  <textarea style="text-align: center; font-family:courier new,courier,lucida sans typewriter,lucida typewriter,monospace; font-size:20px" id="p-latin" rows="10" cols="60"></textarea>
+  <script>
+    function is_vowel(char_)
+    {
+      return char_ == 'a' || char_ == 'e' || char_ == 'i' || char_ == 'o' || char_ == 'u' || 
+              char_ == 'A' || char_ == 'E' || char_ == 'I' || char_ == 'O' || char_ == 'U';
+    }
+    document.getElementById("submit").onclick = function() {
+      var str = document.getElementById("english").value.toLowerCase();
+      let temp_str = ""
+      let out_str = ""
+      for(let i = 0; i < str.length; i++) {
+        if(str.charAt(i) == " ") {
+          let x = 0;
+          while(true) {
+            if (is_vowel(temp_str.charAt(x))) {
+              break;
+            }
+            x++; 
+          }
+          let vowel_ini = (x == 0);
+          let temp_swt = temp_str.substring(0, x);
+          temp_str = temp_str.substring(x, temp_str.length);
+          if(vowel_ini) {
+            temp_str += "y"
+          }
+          temp_str += temp_swt + "ay";
+          console.log(temp_str)
+          out_str += temp_str + ' ';
+          temp_str = ""
+        }
+        else {
+          temp_str += str.charAt(i);
+        }
+      }
+      let x = 0;
+      while(true) {
+        if (is_vowel(temp_str.charAt(x))) {
+          break;
+        }
+        x++; 
+      }
+      let vowel_ini = (x == 0);
+      let temp_swt = temp_str.substring(0, x);
+      temp_str = temp_str.substring(x, temp_str.length);
+      if(vowel_ini) {
+        temp_str += "y"
+      }
+      temp_str += temp_swt + "ay";
+      console.log(temp_str)
+      out_str += temp_str + ' ';
+      document.getElementById("p-latin").value = out_str;
+  }
+      
+  </script>
+</body>
+</html>
