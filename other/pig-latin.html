@@ -60,12 +60,13 @@
     }
     document.getElementById("submit").onclick = function() {
       var str = document.getElementById("english").value.toLowerCase();
+      if(str == "") return;
       let temp_str = ""
       let out_str = ""
       for(let i = 0; i < str.length; i++) {
         if(str.charAt(i) == " ") {
           let x = 0;
-          while(true) {
+          while(x < temp_str.length) {
             if (is_vowel(temp_str.charAt(x))) {
               break;
             }
@@ -87,7 +88,7 @@
         }
       }
       let x = 0;
-      while(true) {
+      while(x < temp_str.length) {
         if (is_vowel(temp_str.charAt(x))) {
           break;
         }
