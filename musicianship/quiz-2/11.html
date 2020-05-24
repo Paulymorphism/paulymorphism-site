@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<style type="text/css" media="screen">
+  .container {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+</style>
+
+<html>
+    <head>
+    </head>
+    <body>
+        <!--Audio File-->
+        <audio id="audio">
+            <source src="https://paulymorphism.com/musicianship/quiz-2/11.mp3" type="audio/mp3">
+        </audio>
+
+        <!--Play Button-->
+        <div>
+            <h5>Audio:</h5>
+            <button onClick="document.getElementById('audio').play();
+            this.style.visibility='hidden';">Play</button>
+        </div>
+    </body>
+</html>
