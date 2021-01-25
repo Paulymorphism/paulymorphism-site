@@ -39,15 +39,23 @@
             <source src="https://paulymorphism.com/musicianship/interval-with-songs/maj2/5.mp3" type="audio/mp3">
         </audio>
 
-        <audio id="audio6">
-            <source src="https://paulymorphism.com/musicianship/interval-with-songs/maj2/6.mp3" type="audio/mp3">
+        <audio id="audio0">
+            <source src="https://paulymorphism.com/musicianship/interval-with-songs/maj2/0.mp3" type="audio/mp3">
         </audio>
 
         <!--Play Button-->
         <div>
             <h5>Audio:</h5>
-            <button onClick="document.getElementById('audio' + (Math.random() % 6)).play();
-            this.style.visibility='hidden';">Play</button>
+            <button id="btn" onClick="playInterval()">Play</button>
+            <script>
+                var fileID="audio" + Math.floor(Math.random() * 6);
+                console.log(fileID);
+                function playInterval() {
+                    document.getElementById(fileID).play();
+                    document.getElementById("btn").style.visibility='hidden';
+                    console.log(fileID);
+                }
+            </script>
         </div>
     </body>
 </html>
