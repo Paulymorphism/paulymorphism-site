@@ -1,0 +1,58 @@
+a:link {
+    color: #10325C;
+    background-color: #EBF2FA;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #10325C;
+    background-color: #EBF2FA;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #EBF2FA;
+    background-color: #104F9E;
+    text-decoration: none;
+}
+
+a:active {
+    color: #EBF2FA;
+    background-color: #10325C;
+    text-decoration: none;
+}
+
+p.list {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+p.sublist {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.text-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+p.paragraph {
+    padding-right: 15%;
+    padding-left: 15%;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+img {
+
+    object-fit: contain;
+}
