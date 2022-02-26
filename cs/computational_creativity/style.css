@@ -1,0 +1,86 @@
+.h-flex {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.drawContainer {
+    width: 75vw;
+    display: block;
+    margin-right: 3vw;
+}
+
+.drawContainer > div {
+    height: 100%;
+    display: block;
+}
+
+.drawingBoard {
+    cursor: none;
+    position: absolute;
+    border:2px solid;
+}
+
+.v-flex {
+    display: flex;
+    flex-direction: column;
+    right: 17vw;
+}
+
+.voiceSelector {
+    display: block;
+}
+
+
+.voices {
+    display: flex;
+    flex-direction: row;
+}
+
+.voices > div {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 3px solid white;
+    transition: 0.2s;
+}
+
+.voices > div:hover {
+    border: 3px solid black;
+}
+
+.sheetmusic {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+}
+
+.sheetmusic > div {
+    width: 17vw;
+    height: 12.5vh;
+    display: block;
+    border: 3px solid white;
+    transition: 0.2s;
+}
+
+.sheetmusic > div:hover {
+    border: 3px solid black;
+}
+
+.blue {
+    width: 17vw;
+    height: 12.5vh;
+    object-fit: fill;
+    position: absolute;
+}
+
+.red {
+    width: 17vw;
+    height: 12.5vh;
+    object-fit: fill;
+    position: absolute;
+}

@@ -1,0 +1,64 @@
+<html>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+
+<body onload="init()">
+    <div class="h-flex">
+
+        <section class="drawContainer">
+            <h1>Draw Melody</h1>
+            <div>
+                <canvas class="drawingBoard" id="redboard"></canvas>
+                <canvas class="drawingBoard" id="blueboard"></canvas>
+                <canvas class="drawingBoard" id="foreground"></canvas>
+            </div>
+            <input type="button" value="save" id="btn" size="30" onclick="save()">
+            <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+
+        </section>
+
+        <section>
+            <div class="v-flex">
+                <div class="voiceSelector">
+                    <h2>Choose Voice</h2>
+                    <div class="voices">
+                        <div style="background:blue;" id="blue" onclick="color(this)">
+                        </div>
+                        <div style="background:red;" id="red" onclick="color(this)">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Music Preview</h2>
+                    <div class="sheetmusic">
+                        <div id="line1" onclick="change(this)">
+                            <img class="blue" id="line1b">
+                            <img class="red" id="line1r">
+                        </div>
+                        <div id="line2" onclick="change(this)">
+                            <img class="blue" id="line2b">
+                            <img class="red" id="line2r">
+                        </div>
+                        <div id="line3" onclick="change(this)">
+                            <img class="blue" id="line3b">
+                            <img class="red" id="line3r">
+                        </div>
+                        <div id="line4" onclick="change(this)">
+                            <img class="blue" id="line4b">
+                            <img class="red" id="line4r">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </div> <!-- end of h-flex -->
+
+</body>
+
+</html>
